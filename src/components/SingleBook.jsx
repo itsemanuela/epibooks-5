@@ -1,21 +1,9 @@
-import { Card } from 'react-bootstrap'
+import { render, screen, fireEvent } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
+import App from "../App";
 
-const SingleBook = ({ changeSelectedBook, selectedBook, book }) => {
-  return (
-    <>
-      <Card
-        onClick={() => changeSelectedBook(book.asin)}
-        style={{
-          border: selectedBook === book.asin ? '3px solid red' : 'none',
-        }}
-      >
-        <Card.Img variant="top" src={book.img} />
-        <Card.Body>
-          <Card.Title style={{ color: 'black' }}>{book.title}</Card.Title>
-        </Card.Body>
-      </Card>
-    </>
-  )
-}
-
-export default SingleBook
+describe("Test selezione libri", () => {
+  it("cambia il bordo al click", () => {
+    render(<App />);
+  });
+});
